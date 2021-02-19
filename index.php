@@ -17,10 +17,15 @@ Ekrane pamatome failo turinį. -->
 
 // json duomenys i masyva 
 
-// $data = json_decode(file_get_contents('data.json'), 1);
+// function jsonIntoMassive($fileName)
+// {
+//     $data = json_decode(file_get_contents($fileName), 1);
 
-// // $data = file_get_contents('data.json');
-// print_r($data);
+//     return $data;
+// }
+
+
+// print_r(jsonIntoMassive('data.json'));
 
 
 ##########################################################################
@@ -28,22 +33,30 @@ Ekrane pamatome failo turinį. -->
 
 // xml duomenys i masyva
 
+// function xmlIntoMassive($fileName)
+// {
+//     $objXmlDocument = simplexml_load_file($fileName);
+//     $objJsonDocument = json_encode($objXmlDocument);
+//     $arrOutput = json_decode($objJsonDocument, 1);
 
-// $objXmlDocument = simplexml_load_file("data.xml");
-// $objJsonDocument = json_encode($objXmlDocument);
-// $arrOutput = json_decode($objJsonDocument, 1);
+//     return $arrOutput;
+// }
 
 
-// print_r($arrOutput);
+// print_r(xmlIntoMassive('data.xml'));
 
 ##########################################################################
 
 //csv duomenys i masyva
+function csvIntoMassive($fileName)
+{
+    $csv = array_map('str_getcsv', file($fileName));
+    array_walk($csv, function (&$a) use ($csv) {
+        $a = array_combine($csv[0], $a);
+    });
+    array_shift($csv);
 
-$csv = array_map('str_getcsv', file('data.csv'));
-array_walk($csv, function (&$a) use ($csv) {
-    $a = array_combine($csv[0], $a);
-});
-array_shift($csv);
+    return $csv;
+}
 
-print_r($csv);
+print_r(csvIntoMassive('data.csv'));
