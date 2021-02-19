@@ -15,23 +15,35 @@ Ekrane pamatome failo turinį. -->
 
 <?php
 
-// json duomenys i masiva 
+// json duomenys i masyva 
 
-$data = json_decode(file_get_contents('data.json'), 1);
+// $data = json_decode(file_get_contents('data.json'), 1);
 
-// $data = file_get_contents('data.json');
-print_r($data);
+// // $data = file_get_contents('data.json');
+// print_r($data);
 
 
 ##########################################################################
 
 
-// xml duomenys i masiva
+// xml duomenys i masyva
 
 
-$objXmlDocument = simplexml_load_file("data.xml");
-$objJsonDocument = json_encode($objXmlDocument);
-$arrOutput = json_decode($objJsonDocument, 1);
+// $objXmlDocument = simplexml_load_file("data.xml");
+// $objJsonDocument = json_encode($objXmlDocument);
+// $arrOutput = json_decode($objJsonDocument, 1);
 
 
-print_r($arrOutput);
+// print_r($arrOutput);
+
+##########################################################################
+
+//csv duomenys i masyva
+
+$csv = array_map('str_getcsv', file('data.csv'));
+array_walk($csv, function (&$a) use ($csv) {
+    $a = array_combine($csv[0], $a);
+});
+array_shift($csv);
+
+print_r($csv);
