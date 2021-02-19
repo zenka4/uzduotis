@@ -17,12 +17,12 @@ Ekrane pamatome failo turinį. -->
 
 // json duomenys i masyva 
 
-// function jsonIntoMassive($fileName)
-// {
-//     $data = json_decode(file_get_contents($fileName), 1);
+function jsonIntoMassive($fileName)
+{
+    $data = json_decode(file_get_contents($fileName), 1);
 
-//     return $data;
-// }
+    return $data;
+}
 
 
 // print_r(jsonIntoMassive('data.json'));
@@ -33,14 +33,14 @@ Ekrane pamatome failo turinį. -->
 
 // xml duomenys i masyva
 
-// function xmlIntoMassive($fileName)
-// {
-//     $objXmlDocument = simplexml_load_file($fileName);
-//     $objJsonDocument = json_encode($objXmlDocument);
-//     $arrOutput = json_decode($objJsonDocument, 1);
+function xmlIntoMassive($fileName)
+{
+    $objXmlDocument = simplexml_load_file($fileName);
+    $objJsonDocument = json_encode($objXmlDocument);
+    $arrOutput = json_decode($objJsonDocument, 1);
 
-//     return $arrOutput;
-// }
+    return $arrOutput;
+}
 
 
 // print_r(xmlIntoMassive('data.xml'));
@@ -59,4 +59,27 @@ function csvIntoMassive($fileName)
     return $csv;
 }
 
-print_r(csvIntoMassive('data.csv'));
+// print_r(csvIntoMassive('data.csv'));
+
+##############################################################################
+
+// bendra funkcija 
+
+
+function readGivenFile($fileName)
+{
+
+    if ($fileName == 'data.xml') {
+        _d($fileName);
+        return xmlIntoMassive($fileName);
+    } elseif ($fileName == 'data.json') {
+        return jsonIntoMassive($fileName);
+    } elseif ($fileName == 'data.csv') {
+        return csvIntoMassive($fileName);
+    } else {
+        return 'check  file name';
+    }
+}
+
+echo '<pre>';
+print_r(readGivenFile('data.json'));
