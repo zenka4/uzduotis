@@ -12,3 +12,26 @@ Programa turi būti parašyta taip, kad pridėjus naują (ar pašalinus esamą) 
 Kaip tai daugmaž turėtų veikti:
 Perduodame programai failo pavadinimą.
 Ekrane pamatome failo turinį. -->
+
+<?php
+
+// json duomenys i masiva 
+
+$data = json_decode(file_get_contents('data.json'), 1);
+
+// $data = file_get_contents('data.json');
+print_r($data);
+
+
+##########################################################################
+
+
+// xml duomenys i masiva
+
+
+$objXmlDocument = simplexml_load_file("data.xml");
+$objJsonDocument = json_encode($objXmlDocument);
+$arrOutput = json_decode($objJsonDocument, 1);
+
+
+print_r($arrOutput);
