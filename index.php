@@ -1,3 +1,22 @@
+<?php
+// include __DIR__ . '/function.php';
+include __DIR__ . '/src/MyProject/Entity/FileReader.php';
+// session_start();
+// _d($_GET['File_Select']);
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//     $_SESSION['msg'] = $_POST['File_Select'];
+//     if ($_POST['File_Select'] == "data.json") {
+//         // _dd($_POST['File_Select']);
+//         header('Location: http://localhost/uzduotis/');
+//         exit;
+//     }
+// }
+
+// if (isset($_SESSION['msg'])) {
+//     $msg = $_SESSION['msg'];
+//     unset($_SESSION['msg']);
+// }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,17 +28,17 @@
 </head>
 
 <body>
-    <form action="" method="post">
+    <form action="" method="get">
         <select name="File_Select" id="">
-            <option value="0">select file type</option>
-            <option value="1">JSON</option>
-            <option value="2">XML</option>
-            <option value="3">CSV</option>
+            <option value="No_file_selected">select file type</option>
+            <option value="data.json">JSON</option>
+            <option value="data.xml">XML</option>
+            <option value="data.csv">CSV</option>
         </select>
 
-        <button type="submit" name="fileType">Read</button>
+        <button type="submit">Read</button>
     </form>
-
+    <?php include __DIR__ . '/dataView.php' ?>
 </body>
 
 </html>
