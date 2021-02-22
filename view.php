@@ -1,11 +1,18 @@
 <?php include __DIR__ . '/dataView.php' ?>
-<div style="display:inline-block">first name</div>
-<div style="display:inline-block">age</div>
-<div style="display:inline-block">gender</div>
-<?php foreach ($fileOutput as $value) : ?>
-    <div>
-        <div style="display:inline-block"><?= $value['first_name'] ?></div>
-        <div style="display:inline-block"><?= $value['age'] ?></div>
-        <div style="display:inline-block"><?= $value['gender'] ?></div>
-    </div>
-<?php endforeach ?>
+
+<?php print_r($fileOutput); ?>
+<table>
+    <tr>
+        <?php foreach ($fileOutput[0] as $key => $value) : ?>
+            <th><?= $key ?></th>
+        <?php endforeach ?>
+    </tr>
+
+    <?php foreach ($fileOutput as $value) : ?>
+        <tr>
+            <th> <?= $value['first_name'] ?></th>
+            <th> <?= $value['age'] ?></th>
+            <th> <?= $value['gender'] ?></th>
+        </tr>
+    <?php endforeach ?>
+</table>
