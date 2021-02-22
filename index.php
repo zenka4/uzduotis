@@ -30,7 +30,7 @@ include __DIR__ . '/src/MyProject/Entity/FileReader.php';
 <body>
     <form action="" method="get">
         <select name="File_Select" id="">
-            <option value="No_file_selected">select file type</option>
+            <option value="">select file type</option>
             <option value="data.json">JSON</option>
             <option value="data.xml">XML</option>
             <option value="data.csv">CSV</option>
@@ -38,7 +38,7 @@ include __DIR__ . '/src/MyProject/Entity/FileReader.php';
 
         <button type="submit">Read</button>
     </form>
-    <?php include __DIR__ . '/dataView.php' ?>
+    <?php include __DIR__ . '/view.php' ?>
 </body>
 
 </html>

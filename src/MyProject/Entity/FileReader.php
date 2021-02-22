@@ -30,7 +30,7 @@ class FileReader
         $objJsonDocument = json_encode($objXmlDocument);
         $arrOutput = json_decode($objJsonDocument, 1);
 
-        return $arrOutput;
+        return $arrOutput['item'];
     }
 
     function csvIntoMassive()
