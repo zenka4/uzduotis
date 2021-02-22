@@ -1,6 +1,7 @@
 <?php
 // include __DIR__ . '/function.php';
 include __DIR__ . '/src/MyProject/Entity/FileReader.php';
+include __DIR__ . '/dataView.php';
 // session_start();
 // _d($_GET['File_Select']);
 // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -30,7 +31,7 @@ include __DIR__ . '/src/MyProject/Entity/FileReader.php';
 <body>
     <form action="" method="get">
         <select name="File_Select" id="">
-            <option value="">select file type</option>
+            <option value="0">select file type</option>
             <option value="data.json">JSON</option>
             <option value="data.xml">XML</option>
             <option value="data.csv">CSV</option>
@@ -38,7 +39,10 @@ include __DIR__ . '/src/MyProject/Entity/FileReader.php';
 
         <button type="submit">Read</button>
     </form>
-    <?php include __DIR__ . '/view.php' ?>
+
+    <?php if (isset($_GET['File_Select']) && ($_GET['File_Select'] != '0')) {
+        include __DIR__ . '/view.php';
+    } ?>
 </body>
 
 </html>

@@ -13,9 +13,9 @@ class FileReader
 
     /**
      * Reads entire file into a string, Takes a JSON encoded string and converts it into a PHP variable
-     * @return massive;
+     * @return array;
      */
-    function jsonIntoMassive()
+    function jsonIntoArray()
     {
         $data = json_decode(file_get_contents($this->fileName), 1);
 
@@ -23,7 +23,7 @@ class FileReader
     }
 
 
-    function xmlIntoMassive()
+    function xmlIntoArray()
     {
 
         $objXmlDocument = simplexml_load_file($this->fileName);
@@ -33,7 +33,7 @@ class FileReader
         return $arrOutput['item'];
     }
 
-    function csvIntoMassive()
+    function csvIntoArray()
     {
         $csv = array_map('str_getcsv', file($this->fileName));
         array_walk($csv, function (&$a) use ($csv) {
@@ -49,11 +49,11 @@ class FileReader
 
         if ($this->fileName == 'data.xml') {
             _d($this->fileName);
-            return $this->xmlIntoMassive();
+            return $this->xmlIntoArray();
         } elseif ($this->fileName == 'data.json') {
-            return $this->jsonIntoMassive();
+            return $this->jsonIntoArray();
         } elseif ($this->fileName == 'data.csv') {
-            return $this->csvIntoMassive();
+            return $this->csvIntoArray();
         } else {
             return 'check  file name';
         }
