@@ -13,6 +13,10 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Show data') {
         //failo pilnas vardas
         $fileName = $_FILES['fileToUpload']['name'];
 
+
+        //laikina direktorija
+        $fileTmpPath = $_FILES['fileToUpload']['tmp_name'];
+
         //is failo vardo atskiriam failo tipa
         $fileType = substr($fileName, strrpos($fileName, '.') + 1);
 
@@ -25,7 +29,7 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Show data') {
 
         if (in_array($lowerCaseFileType, $allowedfileExtensions)) {
 
-            $fileReader = new FileReader($fileName, $lowerCaseFileType);
+            $fileReader = new FileReader($fileTmpPath, $lowerCaseFileType);
             $fileOutput = $fileReader->readGivenFile();
             $_SESSION['msg'] = $fileOutput;
             header('location:http://localhost/uzduotis/');
