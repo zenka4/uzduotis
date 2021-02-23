@@ -5,10 +5,12 @@ namespace MyProject\Entity;
 class FileReader
 {
     private $fileName;
+    private $fileType;
 
-    function __construct($fileName)
+    function __construct($fileName, $fileType)
     {
         $this->fileName = $fileName;
+        $this->fileType = $fileType;
     }
 
     /**
@@ -47,15 +49,15 @@ class FileReader
     function readGivenFile()
     {
 
-        if ($this->fileName == 'data.xml') {
-            _d($this->fileName);
+        if ($this->fileType == 'xml') {
+            _d($this->fileType);
             return $this->xmlIntoArray();
-        } elseif ($this->fileName == 'data.json') {
+        } elseif ($this->fileType == 'json') {
             return $this->jsonIntoArray();
-        } elseif ($this->fileName == 'data.csv') {
+        } elseif ($this->fileType == 'csv') {
             return $this->csvIntoArray();
         } else {
-            return 'check  file name';
+            return 'check  file type';
         }
     }
 }
