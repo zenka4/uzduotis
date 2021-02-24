@@ -11,6 +11,7 @@ if (isset($_SESSION['msg'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./MyProject/css/index.css">
     <title>Uzduotis</title>
 </head>
 
@@ -23,9 +24,9 @@ if (isset($_SESSION['msg'])) {
         <input type="submit" value="Show data" name="uploadBtn">
     </form>
 
-    <div><?php if (isset($msg)) {
-                include __DIR__ . '/view.php';
-            } ?></div>
+    <div class="table"><?php if (isset($msg)) {
+                            include __DIR__ . '/view.php';
+                        } ?></div>
 </body>
 
 </html>

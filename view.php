@@ -8,9 +8,9 @@
 
     <?php foreach ($msg as $value) : ?>
         <tr>
-            <th> <?= $value['first_name'] ?></th>
-            <th> <?= $value['age'] ?></th>
-            <th> <?= $value['gender'] ?></th>
+            <?php foreach ($value as $item) : ?>
+                <th> <?= $item ?></th>
+            <?php endforeach ?>
         </tr>
     <?php endforeach ?>
 </table>

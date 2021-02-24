@@ -13,5 +13,10 @@
         "first_name": "Karina",
         "age": 25,
         "gender": "female"
+    },
+    {
+        "first_name": "Vytska",
+        "age": 32,
+        "gender": "male"
     }
 ]

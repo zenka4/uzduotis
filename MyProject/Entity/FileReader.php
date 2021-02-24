@@ -7,14 +7,18 @@ class FileReader
     private $fileName;
     private $fileType;
 
+    /**
+     * create obj with temporary directory name, file type
+     * @return object
+     */
     function __construct($fileName, $fileType)
     {
-        $this->fileName = $fileName;
+        $this->fileName = $fileName; //  <=laikina direktorija
         $this->fileType = $fileType;
     }
 
     /**
-     * Reads entire file into a string, Takes a JSON encoded string and converts it into a PHP variable
+     * Reads JSON entire file into a string, Takes a JSON encoded string and converts it into a PHP variable
      * @return array;
      */
     function jsonIntoArray()
@@ -24,7 +28,10 @@ class FileReader
         return $data;
     }
 
-
+    /**
+     * Reads XML entire file, and converts it into a PHP variable
+     * @return array;
+     */
     function xmlIntoArray()
     {
 
@@ -35,6 +42,11 @@ class FileReader
         return $arrOutput['item'];
     }
 
+
+    /**
+     * Read csv
+     * @return array;
+     */
     function csvIntoArray()
     {
         $csv = array_map('str_getcsv', file($this->fileName));
@@ -46,6 +58,10 @@ class FileReader
         return $csv;
     }
 
+    /**
+     * checks by file type which function to run if type exist in list
+     * 
+     */
     function readGivenFile()
     {
 

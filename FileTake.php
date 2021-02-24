@@ -4,7 +4,7 @@ use MyProject\Entity\FileReader;
 
 session_start();
 include __DIR__ . '/MyProject/Entity/FileReader.php';
-// ar ta uzklausa kurios laukiam
+// tikrinam  ar ta uzklausa kurios laukiam
 if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Show data') {
 
     // tikrinam ar failas sekmingai uzsikrove
