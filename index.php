@@ -21,19 +21,21 @@ if (isset($_SESSION['err'])) {
 </head>
 
 <body>
-    <form enctype="multipart/form-data" action="FileTake.php" method="post">
+    <div class="form">
+        <form enctype="multipart/form-data" action="FileTake.php" method="post">
 
-        <span>Select data file to upload:</span>
-        <input type="file" name="fileToUpload">
+            <span>Select data file to upload:</span>
+            <input type="file" name="fileToUpload">
 
-        <input type="submit" value="Show data" name="uploadBtn">
-    </form>
-
+            <input type="submit" value="Show data" name="uploadBtn">
+        </form>
+    </div>
+    <div class="err"><?= $err ?? '' ?></div>
     <div class="table"><?php if (isset($msg)) {
                             include __DIR__ . '/view.php';
                         } ?></div>
 
-    <?= $err ?? '' ?>
+
 </body>
 
 </html>
