@@ -5,16 +5,14 @@ namespace MyProject\Entity;
 class FileReader
 {
     private $fileName;
-    private $fileType;
 
     /**
      * create obj with temporary directory name, file type
      * @return object
      */
-    function __construct($fileName, $fileType)
+    function __construct($fileName)
     {
         $this->fileName = $fileName; //  <=laikina direktorija
-        $this->fileType = $fileType;
     }
 
     /**
@@ -56,24 +54,5 @@ class FileReader
         array_shift($csv);
 
         return $csv;
-    }
-
-    /**
-     * checks by file type which function to run if type exist in list
-     * 
-     */
-    function readGivenFile()
-    {
-
-        if ($this->fileType == 'xml') {
-            _d($this->fileType);
-            return $this->xmlIntoArray();
-        } elseif ($this->fileType == 'json') {
-            return $this->jsonIntoArray();
-        } elseif ($this->fileType == 'csv') {
-            return $this->csvIntoArray();
-        } else {
-            return 'check  file type';
-        }
     }
 }
