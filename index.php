@@ -3,7 +3,12 @@ session_start();
 if (isset($_SESSION['msg'])) {
     $msg = $_SESSION['msg'];
     unset($_SESSION['msg']);
-} ?>
+}
+if (isset($_SESSION['err'])) {
+    $err = $_SESSION['err'];
+    unset($_SESSION['err']);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,6 +32,8 @@ if (isset($_SESSION['msg'])) {
     <div class="table"><?php if (isset($msg)) {
                             include __DIR__ . '/view.php';
                         } ?></div>
+
+    <?= $err ?? '' ?>
 </body>
 
 </html>

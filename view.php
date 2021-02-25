@@ -1,5 +1,5 @@
 <table>
-    <tr>
+    <tr class="first">
         <?php foreach ($msg[0] as $key => $value) : ?>
             <th><?= $key ?></th>
         <?php endforeach ?>

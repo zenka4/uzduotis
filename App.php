@@ -36,13 +36,13 @@ class App
 
                     self::readGivenFile($lowerCaseFileType);
                 }
-                $_SESSION['err'] = 'Bad extension ,file type';
+                $_SESSION['err'] = 'Bad file extension';
                 self::redirect();
             }
-            $_SESSION['err'] = 'Something wrong with file';
+            $_SESSION['err'] = 'File not chosen or Something wrong with file ';
             self::redirect();
         }
-        $_SESSION['err'] = 'File not upload';
+        $_SESSION['err'] = 'Bad request';
         self::redirect();
     }
 
@@ -83,7 +83,8 @@ class App
             $_SESSION['msg'] = $fileOutput;
             self::redirect();
         } else {
-            return 'check  file type';
+            $_SESSION['err'] = 'check  file type';
+            self::redirect();
         }
     }
 }
