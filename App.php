@@ -52,7 +52,7 @@ class App
      */
     public static function redirect()
     {
-        header('location:http://localhost/probuju/');
+        header('location:http://localhost/uzduotis/');
         die;
     }
 

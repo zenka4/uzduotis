@@ -1,4 +1,3 @@
-<?php print_r($msg); ?>
 <table>
     <tr>
         <?php foreach ($msg[0] as $key => $value) : ?>
